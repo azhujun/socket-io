@@ -1,0 +1,412 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('./images/bg.jpg');
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  body #app {
+    width: 1000px;
+    height: 800px;
+    background-color: transparent;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  body .left-list {
+    width: 320px;
+    height: 100%;
+    overflow: hidden;
+    background-color: #ccc;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  body .left-list .left-login-info {
+    width: 70px;
+    height: 100%;
+    background-color: #333;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 12px;
+  }
+
+  body .left-list .left-login-info img {
+    width: 100%;
+  }
+
+  body .left-list .ui-tabBtn-box {
+    padding-top: 10px;
+  }
+
+  body .left-list .ui-tabBtn-item {
+    padding: 5px 10px;
+    font-size: 28px;
+    line-height: 30px;
+    height: 30px;
+    color: #f2f2f2;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+  }
+
+  body .left-list .ui-tabBtn-item.active {
+    color: #b2e281;
+  }
+
+  body .left-list .left-user-list {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #fff;
+  }
+  .box-shadow{
+    box-shadow: 0px 4px 20px 0px rgba(121,152,215,0.2);
+  }
+  body .left-list .left-user-list .title-user-list {
+    line-height: 1;
+    font-size: 22px;
+    text-align: center;
+    padding: 10px 0;
+    color: #555;
+  }
+
+  .nothing{
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    line-height: 1;
+    color: #999;
+    font-size: 16px;
+  }
+
+  body .left-list .left-user-list .scroll-user-list {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    overflow: auto;
+  }
+
+  body .left-list .left-user-list .scroll-user-list .list-li {
+    height: 50px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0 10px;
+    font-size: 14px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
+
+  body .left-list .left-user-list .scroll-user-list .list-li .red-circle {
+    right: 10px;
+    top: 20px;
+  }
+
+  body .left-list .left-user-list .scroll-user-list .list-li .msg {
+    color: #9a9a9a;
+    line-height: 1;
+    padding-top: 5px;
+    font-size: 12px;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  body .left-list .left-user-list .scroll-user-list .list-li img {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+  }
+
+  body .left-list .left-user-list .scroll-user-list .list-li:hover {
+    opacity: .8;
+  }
+
+  body .left-list .left-user-list .scroll-user-list .list-li .message-box {
+    float: 1;
+  }
+
+  body .left-list .left-user-list .scroll-user-list .list-li.active {
+    background-color: #dedede;
+    color: #333;
+  }
+
+  body .red-circle {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 5px;
+  }
+
+  body .right-content {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin-left: 10px;
+    background-color: #ccc;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .right-content.nothing{
+    justify-content: center;
+    align-items: center;
+  }
+
+  body .right-content .right-title {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-size: 26px;
+    padding: 30px;
+    line-height: 1;
+    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+
+  body .right-content .scroll-list {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    overflow: auto;
+  }
+
+  body .right-content .footer-bar {
+    height: 150px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    position: relative;
+  }
+  
+  body .right-content .footer-bar .label{
+    width: 100%;
+    height: 100%;
+  }
+ 
+  body .right-content .chart-ul {
+    padding: 10px 50px;
+  }
+
+  body .right-content .chart-li {
+    list-style: none;
+  }
+
+  body .right-content .textarea {
+    width: 100%;
+    height: 80px;
+    font-size: 24px;
+    border: none;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 15px;
+    resize: none;
+    outline: none;
+  }
+
+  body .right-content .send {
+    padding: 5px 20px;
+    background-color: #ccc;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  /***********对话气泡样式*************/
+  .ui-thread-item {
+    margin: 8px auto;
+  }
+  .ui-thread-item:after,
+  .ui-thread-content:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+  .ui-thread-avatar {
+    width: 40px;
+    height: 40px;
+    float: left;
+  }
+  .ui-thread-avatar img {
+    display: block;
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+  }
+  .ui-thread-content {
+    margin: 0 55px;
+  }
+  .ui-thread-content img {
+    vertical-align: bottom;
+    margin: 2px;
+  }
+  .ui-thread-info {
+    line-height: 25px;
+    height: 25px;
+    font-size: 12px;
+    color: #8c8c8c;
+  }
+  .ui-thread-info span {
+    margin: 0 10px;
+  }
+  .ui-thread-body {
+    float: left;
+    position: relative;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    color: #5f5f5f;
+    word-wrap: break-word;
+    max-width: 100%;
+    min-height: 20px;
+  }
+  .ui-thread-body:after {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 0 solid transparent;
+    border-right: 10px solid #fff;
+    border-bottom: 16px solid transparent;
+    position: absolute;
+    top: 5px;
+    left: -10px;
+  }
+  .ui-thread-right .ui-thread-avatar,
+  .ui-thread-right .ui-thread-body {
+    float: right;
+  }
+  .ui-thread-right .ui-thread-info {
+    text-align: right;
+  }
+  .ui-thread-right .ui-thread-body {
+    background-color: #b2e281;
+  }
+  .ui-thread-right .ui-thread-body:after {
+    border-left: 10px solid #b2e281;
+    border-right: none;
+    top: 5px;
+    left: 100%;
+  }
+  /*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+  .ui-scroll::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  /*定义滚动条的轨道，内阴影及圆角*/
+  .ui-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(240, 240, 240, 0);
+    border-radius: 10px;
+    background-color: rgba(0, 89, 255, 0);
+  }
+  /*定义滑块，内阴影及圆角*/
+  .ui-scroll:hover::-webkit-scrollbar-thumb {
+    /*width: 10px;*/
+    height: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(236, 236, 236, 0.3);
+    background-color: rgba(203, 203, 203, 0.54);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+.im-form-element{
+    margin-left: 80px;
+}
+.im-form-element .im-input{
+    font-size: 14px;
+    display: block;
+    line-height: 35px;
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid #C0C4CC;
+    box-sizing: border-box;
+    width: 220px;
+    outline: none;
+}
+.im-form-element .im-input{
+  border-radius:4px;
+}
+.im-loginBtn{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: block;
+  width: 100%;
+  line-height: 30px;
+  font-size: 12px;
+  background: #4db3ff;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.im-loginBtn:active{
+  opacity: .8;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}

@@ -1,0 +1,63 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title 客服
+    link(rel='stylesheet', href='./css/font-awesome.min.css')
+    link(rel='stylesheet', href='customer.css')
+    script(src='https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='http://code.jquery.com/jquery-2.2.4.min.js', integrity='sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=', crossorigin='anonymous')
+    script(src="/layer.js")
+  body
+    #app.app
+      .main(v-if="isLogin")
+        .left-list
+          .left-login-info
+            img(src='./images/logo.png', alt='')
+            .ui-tabBtn-box
+              .ui-tabBtn-item(title='会话', @click="changeTabs('userList')", :class="userActiveListBar==='userList'?'active':''")
+                span.fa.fa-comments
+                span.red-circle(v-show='redCircle.userList')
+              .ui-tabBtn-item(title='客服', @click="changeTabs('customerList')", :class="userActiveListBar==='customerList'?'active':''")
+                span.fa.fa-user-circle
+                span.red-circle(v-show='redCircle.customerList')
+              .ui-tabBtn-item(title='广场', @click="changeTabs('userNotJoin')", :class="userActiveListBar==='userNotJoin'?'active':''")
+                span.fa.fa-user-plus
+                span.red-circle(v-show='redCircle.userNotJoin')
+          .left-user-list
+            p.title-user-list.box-shadow 用户列表
+            .scroll-user-list.ui-scroll
+              ul.list-ul(v-if="Object.keys(userActiveList).length")
+                li.list-li(v-for='user in userActiveList', @click='checkedUser(user)', :class="activeIM.name===user.name?'active':''")
+                  img(:src="user.img||'./images/logo.png'", alt='')
+                  .message-box
+                    p  {{user.name | showName}}
+                    p.msg  {{user.text}}
+                    span.red-circle(v-show='user.circle')
+              p.nothing(v-if="Object.keys(userActiveList).length===0") 没有会话
+        .right-content(v-if='activeIM.name')
+          p.right-title {{ activeIM.name | showName }}
+          .scroll-list.ui-scroll
+            ul.chart-ul
+              li.chart-li(v-for='item in activeIM.list')
+                .ui-thread-item(:class="item.type==='right'?'ui-thread-right':''")
+                  .ui-thread-avatar
+                    img(src='http://q.qlogo.cn/headimg_dl?dst_uin=705597001&spec=100', alt='')
+                  .ui-thread-content
+                    .ui-thread-info
+                      span {{ item.time }}
+                      | {{ item.name | showName}}
+                    .ui-thread-body(v-html='item.text')
+          .footer-bar
+            label.label(for="message")
+              textarea.textarea#message(name='message', v-model='message', placeholder='请输入内容')
+              .send(@click='sendMessage()') 发送
+        .right-content.nothing(v-if='!activeIM.name') 请打开会话
+      .login(v-if="!isLogin")
+        .im-form-element
+          input.im-input(type='text', placeholder='客服昵称', v-model='name')
+          button.im-loginBtn(type='button', @click='open(name)') 登录
+    script(src='./customer.js')
